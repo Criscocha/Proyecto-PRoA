@@ -15,3 +15,6 @@ def alumnos(request):
 
 def contactos(request):
     return render(request,'contactos.html')
+
+def academico(request):
+    return render(request,'academico.html')
