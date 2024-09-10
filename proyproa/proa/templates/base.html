@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block titulo %} Mi Sitio Web {% endblock %}</title>
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <img src="{% static '/img/logo.jpg' %}" alt="Logo" width="50">  
+    <nav background-color="dark">
+        <nav class="navbar navbar-expand-sm navbar-light bg-dark">
+            <div class="container text-white">
+                <a  href="{% url 'index' %}" class="navbar-brand text-white">Inicio</a>
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0 ">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="#" aria-current="page">Academico
+                                <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white"  href="#" >Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white"  href="#" >Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white"  href="#" >Alumnos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white"  href="#" >Contactos</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+    </nav>
+    <main>
+        {% block contenido %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi Sitio Web</p>
+    </footer>
+<script src="{% static '/js/bootstrap.min.js' %}" ></script>
+</body>
+</html>
