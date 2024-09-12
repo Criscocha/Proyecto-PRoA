@@ -9,4 +9,35 @@
 <h2>Página de contactos</h2>
 <p>Bienvenidos a la página de contactos de mi sitio web Proa.</p>
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+</head>
+<body>
+    <h1>Contacto por mails institucionales:</h1>
+    <ul>
+        {% for titulo, correo in correos_institucionales.items %}
+        <li>{{ titulo }}: <a href="mailto:{{ correo }}">{{ correo }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Redes sociales:</h2>
+    <ul>
+        <li>WhatsApp de consultas: {{ redes_sociales.WhatsApp }}</li>
+        <li>Facebook: <a href="{{ redes_sociales.Facebook }}" target="_blank">Facebook</a></li>
+        <li>Instagram: <a href="{{ redes_sociales.Instagram }}" target="_blank">Instagram</a></li>
+    </ul>
+
+    <h2>Formulario de contacto</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
+
 {% endblock %}
