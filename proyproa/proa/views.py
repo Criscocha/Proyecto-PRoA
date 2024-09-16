@@ -48,3 +48,6 @@ def contacto_confirmacion(request):
 
 def academico(request):
     return render(request,'academico.html')
+
+def admisiones(request):
+    return render(request,'admisiones.html')
