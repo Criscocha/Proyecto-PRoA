@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block titulo %}Admisiones:{% endblock %}
+{% block titulo %} Admisiones: {% endblock %}
 
 {% block contenido %}
 
-
-<h2>Admisiones</h2>
-<ul>
-    <li><a href="{% url 'inscripciones' %}">Inscripciones</a></li>
-    <li><a href="{% url 'cambio' %}">Cambio de Colegio</a></li>
-</ul>
+<div class="containter">
+    <h2>Admisiones</h2>
+    <br>
+    <ul>
+        <li><a href="{% url 'inscripciones' %}"> - Inscripciones</a></li>
+        <li><a href="{% url 'cambio' %}"> - Cambio de Colegio</a></li>
+    </ul>
+</div>
 
 {% endblock %}
