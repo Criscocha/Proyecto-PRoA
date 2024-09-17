@@ -1,0 +1,110 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Alumnos:{% endblock %}
+
+{% block contenido %}
+
+
+    <title>Opiniones y Logros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            color: #333;
+        }
+        main {
+            padding: 2em 4%;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 20px;
+        }
+        .column {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .column h2 {
+            text-align: center;
+            color: #0077b6;
+        }
+        .opinion-box, .achievement-box {
+            padding: 20px;
+            margin-top: 10px;
+            background-color: #f0f8ff;
+            border: 1px solid #0077b6;
+            border-radius: 5px;
+        }
+        .opinion-box p, .achievement-box p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .delete-button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .delete-button:hover {
+            background-color: #e53e3e;
+        }
+        .back-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-section button {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-section button:hover {
+            background-color: #005f73;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Opiniones y Logros de Alumnos</h1>
+    </header>
+
+    <div class="container">
+        <!-- Columna de Opiniones -->
+        <div class="column">
+            <h2>Opiniones del Usuario</h2>
+            <div id="opinion-container"></div>
+        </div>
+
+        <!-- Columna de Logros -->
+        <div class="column">
+            <h2>Logros</h2>
+            <div id="achievement-container"></div>
+        </div>
+    </div>
+
+    <div class="back-section">
+        <a href="{% url 'alumnos' %}"><button id="back-button" >Regresar</button></a>
+    </div>
+
+    <script src="view-script.js"></script>
+</body>
+</html>
+
+
+{% endblock %}
