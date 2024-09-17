@@ -6,7 +6,183 @@
 {% block contenido %}
 
 
-<h2>Página de alumnos</h2>
-<p>Bienvenidos a la página de alumnos de mi sitio web Proa.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <title>Agregar Opiniones y Logros</title>
+
+    
+    <style>
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaf3f8; /* Azul pastel claro */
+            color: #333;
+        }
+        
+        main {
+            padding: 2em 4%;
+        }
+
+        section {
+            margin-bottom: 2em;
+            padding: 2em;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-bottom: 2em;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #004d6b; /* Azul marino */
+            font-size: 1.3em;
+            margin-bottom: 1em;
+            border-bottom: 2px solid #3690b4cb; /* Línea decorativa debajo del título */
+            padding-bottom: 0.5em;
+        }
+
+        form label {
+            display: block;
+            margin-top: 0.5em;
+            font-size: 1em;
+            color: #555;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.75em;
+            margin-top: 0.5em;
+            border: 1px solid #c4e0e5; /* Azul pastel muy claro */
+            border-radius: 5px;
+            background-color: #f9fcfd;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        form textarea {
+            resize: vertical; /* Permitir redimensionar verticalmente */
+        }
+
+        form button {
+            margin-top: 1.5em;
+            padding: 0.75em 2em;
+            background-color: #0077b6; /* Azul pastel */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        form button:hover {
+            background-color: #0077b6; /* Azul pastel más oscuro */
+            transform: translateY(-2px); /* Efecto de elevación */
+        }
+
+
+        #display-area {
+            margin-top: 1.5em;
+        }
+
+        .student-entry {
+            padding: 1.5em;
+            margin-bottom: 1em;
+            border-left: 5px solid #0077b6; /* Línea de color azul pastel a la izquierda */
+            background-color: #f9fcfd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px #0077b6;
+        }
+
+        .student-entry h3 {
+            margin: 0;
+            color: #0077b6; /* Azul marino */
+            font-size: 1.2em;
+        }
+
+        .student-entry p {
+            margin: 0.5em 0;
+            font-size: 1em;
+            color: #0077b6;
+        }
+
+        .back-section button {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <header>
+                <h1>Agregar Opiniones y Logros de Alumnos</h1>
+            </header>
+            <main>
+                <section id="form-section">
+                    <h2>Agregar Opinión y Logro</h2>
+                    
+                    <!-- Formulario de Opiniones -->
+                    <form id="opinion-form">
+                        <fieldset>
+                            <legend>Agregar Opinión</legend>
+                            <label for="opinion-name">Nombre:</label>
+                            <input type="text" id="opinion-name" name="opinion-name" required>
+                            
+                            <label for="opinion-text">Escribe una opinión:</label>
+                            <textarea id="opinion-text" name="opinion-text" required></textarea>
+                            
+                            <button type="submit">Agregar Opinión</button>
+                        </fieldset>
+                    </form>
+
+                    <!-- Formulario de Logros -->
+                    <form id="achievement-form">
+                        <fieldset>
+                            <legend>Agregar Logro</legend>
+                            <label for="achievement-name">Nombre del Curso:</label>
+                            <input type="text" id="achievement-name" name="achievement-name" required>
+                            
+                            <label for="achievement-text">Escribe un logro:</label>
+                            <textarea id="achievement-text" name="achievement-text" required></textarea>
+                            
+                            <button type="submit">Agregar Logro</button>
+                        </fieldset>
+                    </form>
+
+                    <div class="view-section">
+                        <div class="back-section">
+                            <a href="{% url 'alumnos2' %}"><button id="back-button" >Ver opiniones y logros</button></a>
+                        </div>
+                    </div>
+                </section>
+                
+                    
+                
+            </main>
+            <script src="script.js"></script>
+        </div>
+    </div>
+</body>
+</html>
 
 {% endblock %}

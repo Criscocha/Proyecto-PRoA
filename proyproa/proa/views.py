@@ -13,6 +13,9 @@ def eventos(request):
 def alumnos(request):
     return render(request,'alumnos.html')
 
+def alumnos2(request):
+    return render(request,'alumnos2.html')
+
 from django.shortcuts import render, redirect
 from .forms import ContactoForm
 
