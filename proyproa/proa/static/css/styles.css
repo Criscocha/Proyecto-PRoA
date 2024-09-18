@@ -1,0 +1,5 @@
+.centrado {
+    width: 100%; /* Ancho del div */
+    height: 100%; /* Altura del div */
+    text-align: center;
+}
