@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %} Mi Sitio Web {% endblock %}</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <img src="{% static "img/logo2.png" %}" alt="Escuela PROA" height="50">
             <div class="container">
+<<<<<<< HEAD
                 <img src="{% static '/img/logo.png' %}" alt="Escuela PROA" height="50">
+=======
+>>>>>>> bd090bf41a190ee5c20251336f9aaa917f1d06e2
                 <a href="{% url 'index' %}" class="navbar-brand text-white" style="text-align: center;">Inicio</a>
                 <button
                     class="navbar-toggler d-lg-none"

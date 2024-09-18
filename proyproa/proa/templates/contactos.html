@@ -4,6 +4,13 @@
 {% block titulo %}Contactos:{% endblock %}
 
 {% block contenido %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
 
 <div class="containter">
     <h2>Página de contactos</h2>
@@ -18,10 +25,17 @@
 
     <h2>Redes sociales:</h2>
     <ul>
-        <li>WhatsApp de consultas: {{ redes_sociales.WhatsApp }}</li>
-        <li>Facebook: <a href="{{ redes_sociales.Facebook }}" target="_blank">Facebook</a></li>
-        <li>Instagram: <a href="{{ redes_sociales.Instagram }}" target="_blank">Instagram</a></li>
+        <li class="social-icons">
+            <i class="fab fa-whatsapp"></i> WhatsApp de consultas: {{ redes_sociales.WhatsApp }}
+        </li>
+        <li class="social-icons">
+            <i class="fab fa-facebook"></i> <a href="{{ redes_sociales.Facebook }}" target="_blank">Facebook</a>
+        </li>
+        <li class="social-icons">
+            <i class="fab fa-instagram"></i> <a href="{{ redes_sociales.Instagram }}" target="_blank">Instagram</a>
+        </li>
     </ul>
+    
 
     <h2>Formulario de contacto</h2>
     <form method="post">
@@ -29,6 +43,7 @@
         {{ form.as_p }}
         <button type="submit">Enviar</button>
     </form>
+    <footer class="bg-dark text-white py-4">
 </div>
 
 {% endblock %}
