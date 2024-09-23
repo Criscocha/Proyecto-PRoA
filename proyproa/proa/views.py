@@ -54,7 +54,3 @@ def academico(request):
 
 def admisiones(request):
     return render(request,'admisiones.html')
-def inscripciones(request):
-    return render(request,'inscripciones.html')
-def cambio(request):
-    return render(request,'cambio.html')
