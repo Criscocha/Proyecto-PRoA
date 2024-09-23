@@ -10,3 +10,12 @@ class Contacto(models.Model):
     def __str__(self):
         return self.nombre
 
+class Evento(models.Model):
+    titulo = models.CharField(max_length=200)
+    descripcion = models.TextField()
+    fecha = models.DateField()
+    imagen = models.ImageField(upload_to='eventos_imagenes/', blank=True, null=True)
+    vigente = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.titulo

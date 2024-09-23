@@ -10,3 +10,10 @@ class ContactoForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'placeholder': 'Tu correo'}),
             'mensaje': forms.Textarea(attrs={'placeholder': 'Tu mensaje'}),
         }
+        
+from .models import Evento
+
+class EventoForm(forms.ModelForm):
+    class Meta:
+        model = Evento
+        fields = ['titulo', 'descripcion', 'fecha', 'imagen', 'vigente']

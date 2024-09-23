@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Evento
+
 
 # Create your views here.
 def index(request):
@@ -54,3 +56,19 @@ def academico(request):
 
 def admisiones(request):
     return render(request,'admisiones.html')
+from .forms import EventoForm
+
+def crear_evento(request):
+    if request.method == 'POST':
+        form = EventoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('eventos')  
+    else:
+        form = EventoForm()
+    
+    return render(request, 'crear_evento.html', {'form': form})
+
+def lista_eventos(request):
+    eventos_vigentes = Evento.objects.filter(vigente=True)
+    return render(request, 'eventos.html', {'eventos': eventos_vigentes})
