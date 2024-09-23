@@ -1,14 +1,12 @@
 from django.shortcuts import render
-<<<<<<< HEAD
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from .forms import ContactoForm
-=======
 from .models import Evento
+from .forms import EventoForm
 
->>>>>>> f38599368e27849c24bcd1bc87c8fb044839d517
-
+# 
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -60,14 +58,11 @@ def academico(request):
 
 def admisiones(request):
     return render(request,'admisiones.html')
-<<<<<<< HEAD
 
 # <!-- @login_required  --> Vista que se debe sacar
 def exit(request):
     logout(request)
     return redirect('index')
-=======
-from .forms import EventoForm
 
 def crear_evento(request):
     if request.method == 'POST':
@@ -83,4 +78,3 @@ def crear_evento(request):
 def lista_eventos(request):
     eventos_vigentes = Evento.objects.filter(vigente=True)
     return render(request, 'eventos.html', {'eventos': eventos_vigentes})
->>>>>>> f38599368e27849c24bcd1bc87c8fb044839d517
