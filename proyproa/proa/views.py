@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.shortcuts import render, redirect
+from .forms import ContactoForm
 
 # Create your views here.
 def index(request):
@@ -15,9 +19,6 @@ def alumnos(request):
 
 def alumnos2(request):
     return render(request,'alumnos2.html')
-
-from django.shortcuts import render, redirect
-from .forms import ContactoForm
 
 def contacto_view(request):
     if request.method == 'POST':
@@ -54,3 +55,8 @@ def academico(request):
 
 def admisiones(request):
     return render(request,'admisiones.html')
+
+# <!-- @login_required  --> Vista que se debe sacar
+def exit(request):
+    logout(request)
+    return redirect('index')
