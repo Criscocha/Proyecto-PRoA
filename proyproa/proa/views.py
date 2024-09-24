@@ -81,3 +81,5 @@ def lista_eventos(request):
 
 def colegio(request):
     return render(request,'colegio.html')
+def familia(request):
+    return render(request,'familia.html')
