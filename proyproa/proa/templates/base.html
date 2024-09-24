@@ -12,9 +12,10 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid text-decoration-none">
+            <div class="container-fluid px-20">
                 <img src="{% static 'img/logo2.png' %}" alt="Escuela PROA" height="50">
-                <a href="{% url 'index' %}" class="navbar-brand text-white text-decoration-none" style="text-align: center;">Inicio</a>
+
+                <a href="{% url 'index' %}" class="navbar-brand text-white" style="text-align: center;">Inicio</a>
                 <button
                     class="navbar-toggler d-lg-none"
                     type="button"
@@ -27,50 +28,50 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav mx-auto mt-1 mt-lg-1">
+                    <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active text-white text-decoration-none" href="{% url 'academico' %}" aria-current="page">Academico
+                            <a class="nav-link active text-white" href="{% url 'academico' %}" aria-current="page">Academico
                                 <span class="visually-hidden">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white text-decoration-none" href="{% url 'acerca_de' %}">Acerca de</a>
+                            <a class="nav-link text-white" href="{% url 'acerca_de' %}">Acerca de</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white text-decoration-none" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"  aria-expanded="false">
                               Institucional
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <li><a class="dropdown-item" href="#">Proa Villa del Totoral</a></li>
-                              <li><a class="dropdown-item" href="#">Colegios del Programa</a></li>
+                              <li><a class="dropdown-item" href="{% url 'colegio' %}">Proa Villa del Totoral</a></li>
+                              <li><a class="dropdown-item" href="{% url 'familia' %}">familia PRoA</a></li>
                               <li><a class="dropdown-item" href="#">Trayectoria</a></li>
                               <li><a class="dropdown-item" href="#">Principios y Valores</a></li>
                               <li><a class="dropdown-item" href="#">Programa</a></li>
                             </ul>
                           </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white text-decoration-none" href="{% url 'eventos' %}">Eventos</a>
+                            <a class="nav-link text-white" href="{% url 'eventos' %}">Eventos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white text-decoration-none" href="{% url 'alumnos' %}">Alumnos</a>
+                            <a class="nav-link text-white" href="{% url 'alumnos' %}">Alumnos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white text-decoration-none" href="{% url 'contactos' %}">Contactos</a>
+                            <a class="nav-link text-white" href="{% url 'contactos' %}">Contactos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white text-decoration-none" href="{% url 'admisiones' %}">Admisiones</a>
+                            <a class="nav-link text-white" href="{% url 'admisiones' %}">Admisiones</a>
                         </li>
                             {% if request.user.is_authenticated %}
                             <li class="nav-item">
-                                <li> <a class="nav-link text-white text-decoration-none" href="#"> Cargar </a></li>
+                                <li> <a class="nav-link text-white" href="#"> Cargar </a></li>
                             </li>
                             {% endif %}
 
                         <li class="nav-item">
                             {% if request.user.is_authenticated %}
-                                <li> <a class="nav-link text-white text-decoration-none" href="{% url 'logout' %}"> Logout </a></li>
+                                <li> <a class="nav-link text-white" href="{% url 'logout' %}"> Logout </a></li>
                             {% else %}
-                                <li> <a class="nav-link text-white text-decoration-none" href="{% url 'login' %}"> Login </a></li> 
+                                <li> <a class="nav-link text-white" href="{% url 'login' %}"> Login </a></li> 
                             {% endif %}
                         </li>
                     </ul>
