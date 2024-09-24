@@ -78,3 +78,8 @@ def crear_evento(request):
 def lista_eventos(request):
     eventos_vigentes = Evento.objects.filter(vigente=True)
     return render(request, 'eventos.html', {'eventos': eventos_vigentes})
+
+def colegio(request):
+    return render(request,'colegio.html')
+def familia(request):
+    return render(request,'familia.html')
