@@ -18,4 +18,5 @@ urlpatterns = [
     path('logout/', exit, name='exit'),
     path('eventos/', views.lista_eventos, name='lista_eventos'),
     path('colegio/', views.colegio, name='colegio'),
+    path('familia_proa/', views.familia, name='familia'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
