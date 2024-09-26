@@ -62,7 +62,7 @@
                         </li>
                             {% if request.user.is_authenticated %}
                             <li class="nav-item">
-                                <li> <a class="nav-link text-white text-decoration-none" href="#"> Cargar </a></li>
+                                <li> <a class="nav-link text-white text-decoration-none" href="{% url 'crear_evento' %}"> Cargar </a></li>
                             </li>
                             {% endif %}
 
