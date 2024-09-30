@@ -83,3 +83,5 @@ def colegio(request):
     return render(request,'colegio.html')
 def familia(request):
     return render(request,'familia.html')
+def proa(request):
+    return render(request,'proa.html')

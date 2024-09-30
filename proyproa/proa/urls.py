@@ -19,4 +19,5 @@ urlpatterns = [
     path('eventos2/', views.lista_eventos, name='lista_eventos'),
     path('colegio/', views.colegio, name='colegio'),
     path('familia_proa/', views.familia, name='familia'),
+    path('proa/', views.proa, name='proa'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
