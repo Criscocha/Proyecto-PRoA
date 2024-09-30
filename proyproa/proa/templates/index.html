@@ -19,14 +19,30 @@
             </style>
 
             <h1>Bienvenidos al sitio web de la Escuela PROA</h1>
-            <a href="contactos" class="btn btn-primary mt-3">Descubre la escuela</a>
+            <a href="{% url 'contactos' %}" class="btn btn-primary mt-3">Descubre la escuela</a>
             
         </div>
     </section>
     <div class="container mt-4">
-    <div class="row">
+    <div class="row justify-content-center ">
         <!-- Columna para el vídeo -->
-        <div class="col-md-6">
+        <div class="col-md-11">
+                <div class="card mb-4" style="border: 3px solid; font-size: 20px; border-image: linear-gradient(to right, #7dc0f7, #7dc0f7) 1;">
+                    <div class="card-body text-justify">
+                        <h2 class="centrado">Un poco de las escuelas ProA</h2>
+                        <p>Los ProA son escuelas modelo en innovación educativa, que forman jóvenes especializados en Ingeniería de Software, en Biotecnología y Técnico en Programación, sobre las claves para el desarrollo productivo de nuestra región. En jornadas de 8 horas, los días de estudios partirán con talles de ciencias, arte, deportes, talleres de inglés aplicado y clases específicas vinculadas a la especialidad.</p>
+                        <p>La propuesta educativa también incluye tutorías que ayudarán a formarlas personalidades y acompañarlos en distintos ritmos de aprendizaje. Además, se realizan todas las Jornadas de Profundización sobre áreas de relevancia social, donde exhiben obras construyen un pensamiento crítico, creativo, colaborativo y responsable con su entorno.</p>
+                        <p>Actualmente funcionan más de 41 Escuelas ProA en todo lo privado y estamos construyendo 4 edificios propios de diseño ejecutivo.</p>
+                        <p><strong>Especialidades:</strong></p>
+                        <ul>
+                            <li>Bachiller en Ciencias Naturales con especialización en Biotecnología</li>
+                            <li>Bachiller en Informática especializado en Software</li>
+                            <li>Técnico en Informática</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-7">
             <div class="video-container">
                 <!-- Asegúrate de cambiar el 'src' al enlace de tu video o al archivo local correcto -->
                 <iframe src="static/img/Download.mp4" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
@@ -34,22 +50,6 @@
         </div>
 
         <!-- Columna para el texto -->
-        <div class="col-md-6">
-            <div class="card mb-4" style="border: 3px solid; font-size: 20px; border-image: linear-gradient(to right, #7dc0f7, #7dc0f7) 1;">
-                <div class="card-body text-justify">
-                    <h2>Un poco de las escuelas ProA</h2>
-                    <p>Los ProA son escuelas modelo en innovación educativa, que forman jóvenes especializados en Ingeniería de Software, en Biotecnología y Técnico en Programación, sobre las claves para el desarrollo productivo de nuestra región. En jornadas de 8 horas, los días de estudios partirán con talles de ciencias, arte, deportes, talleres de inglés aplicado y clases específicas vinculadas a la especialidad.</p>
-                    <p>La propuesta educativa también incluye tutorías que ayudarán a formarlas personalidades y acompañarlos en distintos ritmos de aprendizaje. Además, se realizan todas las Jornadas de Profundización sobre áreas de relevancia social, donde exhiben obras construyen un pensamiento crítico, creativo, colaborativo y responsable con su entorno.</p>
-                    <p>Actualmente funcionan más de 41 Escuelas ProA en todo lo privado y estamos construyendo 4 edificios propios de diseño ejecutivo.</p>
-                    <p><strong>Especialidades:</strong></p>
-                    <ul>
-                        <li>Bachiller en Ciencias Naturales con especialización en Biotecnología</li>
-                        <li>Bachiller en Informática especializado en Software</li>
-                        <li>Técnico en Informática</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
