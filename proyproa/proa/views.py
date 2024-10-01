@@ -87,3 +87,5 @@ def objetivos(request):
     return render(request,'objetivos.html')
 def programa(request):
     return render(request,'programa.html')
+def trayectoria(request):
+    return render(request,'trayectoria.html')
