@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}PRoA Villa del Totoral{% endblock %}
+
+{% block contenido %}
+    <div class="container">
+        <h1 class="text-center">Colegio PRoA</h1>
+        <br>
+        <p> Nuestro colegio propone un proceso de trabajo que habilita otros modos de estar en la escuela y de apropiarse del conocimiento, promueve innovación creativa y una disposición de 
+            aprender a aprender, favoreciendo el acercamiento entre la cultura escolar y las culturas juveniles integrando lenguajes multimediales a las dinámicas escolares. 
+            Durante su trayectoria escolar el estudiante podrá desarrollar 3 tipos de alfabetizaciones las cuales estarán articuladas:  básico, científico- tecnológico, y digital.
+        </p>
+        
+        <div class="row ">
+            <div class="col-2"></div>
+            <div class="col-8"> <img src="{% static 'img/proa.jpg' %}" style="height: 300px; width: 500px;" alt="Noticia 3"></div>
+            <div class="col-2"></div>
+           
+        </div>
+        <br>
+        <section class="text-white text-center d-flex justify-content-center align-items-center" style="height: 250px; background-color:#007BFF; border-radius: 7px;">
+            <div class="overlay">
+                <h2 style="color: rgb(255, 255, 255);">Misión</h2>
+                <p class="container ">La Escuela Experimental ProA tiene como objetivo, formar jóvenes especializados en Desarrollo de Software, brindándoles los saberes claves
+                y las herramientas necesarias para el desarrollo productivo de nuestra región; potenciando las capacidades, habilidades y competencias en cada uno de ellos.</p>
+            </div>
+        </section>
+    </div>
+       
+
+    {% endblock %}
