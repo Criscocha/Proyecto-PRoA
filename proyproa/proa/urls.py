@@ -21,4 +21,5 @@ urlpatterns = [
     path('proa/', views.proa, name='proa'),
     path('programa/', views.programa, name='programa'),
     path('objetivos_y_valores/', views.objetivos, name='objetivos'),
+    path('trayectoria/', views.trayectoria, name='trayectoria'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
