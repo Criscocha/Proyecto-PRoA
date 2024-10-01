@@ -14,8 +14,7 @@ def index(request):
 def about(request):
     return render(request,'about.html')
 
-def eventos(request):
-    return render(request,'eventos.html')
+
 
 def alumnos(request):
     return render(request,'alumnos.html')
@@ -69,17 +68,22 @@ def crear_evento(request):
         form = EventoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('eventos')  
+            return redirect('eventos2')  
     else:
         form = EventoForm()
     
     return render(request, 'crear_evento.html', {'form': form})
 
+
 def lista_eventos(request):
     eventos_vigentes = Evento.objects.filter(vigente=True)
     return render(request, 'eventos.html', {'eventos': eventos_vigentes})
 
-def colegio(request):
-    return render(request,'colegio.html')
-def familia(request):
-    return render(request,'familia.html')
+def colegios(request):
+    return render(request,'colegios.html')
+def proa(request):
+    return render(request,'proa.html')
+def objetivos(request):
+    return render(request,'objetivos.html')
+def programa(request):
+    return render(request,'programa.html')
