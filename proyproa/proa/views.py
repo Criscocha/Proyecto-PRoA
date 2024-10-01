@@ -83,3 +83,7 @@ def colegios(request):
     return render(request,'colegios.html')
 def proa(request):
     return render(request,'proa.html')
+def objetivos(request):
+    return render(request,'objetivos.html')
+def programa(request):
+    return render(request,'programa.html')
