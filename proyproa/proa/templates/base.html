@@ -46,9 +46,10 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                               <li><a class="dropdown-item" href="{% url 'proa' %}">Proa Villa del Totoral</a></li>
                               <li><a class="dropdown-item" href="{% url 'colegios_proa' %}">Colegios del Programa</a></li>
-                              <li><a class="dropdown-item" href="#">Trayectoria</a></li>
+                              <li><a class="dropdown-item" href="{% url 'trayectoria' %}">Trayectoria</a></li>
                               <li><a class="dropdown-item" href="{% url 'objetivos' %}">Objetivos y Valores</a></li>
                               <li><a class="dropdown-item" href="{% url 'programa' %}">Programa</a></li>
+                              <li><a class="dropdown-item" href="{% url 'admisiones' %}">Admisiones</a></li>
                             </ul>
                           </li>
                         <li class="nav-item">
@@ -59,9 +60,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white text-decoration-none" href="{% url 'contactos' %}">Contactos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white text-decoration-none" href="{% url 'admisiones' %}">Admisiones</a>
                         </li>
                             {% if request.user.is_authenticated %}
                             <li class="nav-item">
