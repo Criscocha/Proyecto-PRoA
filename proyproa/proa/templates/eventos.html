@@ -125,7 +125,7 @@
         <p>{{ evento.descripcion }}</p>
         <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
         {% if evento.imagen %}
-          <img src="{{ evento.imagen.url }}" alt="Imagen de {{ evento.titulo }}" width="300">
+          <img src="/static/img/{{ evento.imagen.url }}" alt="Imagen de {{ evento.titulo }}" width="300">
         {% endif %}
       </li>
     {% empty %}
