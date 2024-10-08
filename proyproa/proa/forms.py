@@ -11,9 +11,14 @@ class ContactoForm(forms.ModelForm):
             'mensaje': forms.Textarea(attrs={'placeholder': 'Tu mensaje'}),
         }
         
-from .models import Evento
+from .models import Evento, Noticia
 
 class EventoForm(forms.ModelForm):
     class Meta:
         model = Evento
-        fields = ['titulo', 'descripcion', 'fecha', 'imagen', 'vigente']
+        fields = ['nombre','fecha', 'vigente']
+
+class NoticiaForm(forms.ModelForm):
+    class Meta:
+        model = Noticia
+        fields = ['titulo', 'descripcion', 'fecha', 'imagen']

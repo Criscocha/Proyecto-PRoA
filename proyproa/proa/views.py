@@ -3,8 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from .forms import ContactoForm
-from .models import Evento
-from .forms import EventoForm
+from .models import Evento, Noticia
+from .forms import EventoForm, NoticiaForm
 
 # 
 # Create your views here.
@@ -68,12 +68,22 @@ def crear_evento(request):
         form = EventoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('eventos2')  
+            return redirect('lista_eventos')  
     else:
         form = EventoForm()
     
     return render(request, 'crear_evento.html', {'form': form})
 
+def crear_noticia(request):
+    if request.method == 'POST':
+        form = NoticiaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_eventos')  
+    else:
+        form = NoticiaForm()
+    
+    return render(request, 'crear_noticia.html', {'form': form})
 
 def lista_eventos(request):
     eventos_vigentes = Evento.objects.filter(vigente=True)
