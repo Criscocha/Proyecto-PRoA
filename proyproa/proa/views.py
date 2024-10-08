@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from .forms import ContactoForm
 from .models import Evento
 from .forms import EventoForm
-
+from .models import Logro
 # 
 # Create your views here.
 def index(request):
@@ -15,9 +15,15 @@ def about(request):
     return render(request,'about.html')
 
 
+def alumnos_view(request):
+    return render(request, 'alumnos.html')  # Asegúrate de que el template exista
 
-def alumnos(request):
-    return render(request,'alumnos.html')
+
+
+def logro_view(request, logro_id):
+    logro = get_object_or_404(Logro, id=logro_id)
+    
+    return render(request, 'logro.html', {'logro': logro})
 
 def alumnos2(request):
     return render(request,'alumnos2.html')

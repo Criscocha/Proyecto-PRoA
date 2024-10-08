@@ -1,5 +1,7 @@
 from django import forms
 from .models import Contacto
+from .models import Logro
+from .models import Evento
 
 class ContactoForm(forms.ModelForm):
     class Meta:
@@ -11,9 +13,14 @@ class ContactoForm(forms.ModelForm):
             'mensaje': forms.Textarea(attrs={'placeholder': 'Tu mensaje'}),
         }
         
-from .models import Evento
 
 class EventoForm(forms.ModelForm):
     class Meta:
         model = Evento
         fields = ['titulo', 'descripcion', 'fecha', 'imagen', 'vigente']
+
+
+class LogroForm(forms.ModelForm):
+    class Meta:
+        model = Logro 
+        fields = ['nombre', 'descripcion']
