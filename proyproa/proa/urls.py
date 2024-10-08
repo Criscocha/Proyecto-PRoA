@@ -6,8 +6,8 @@ from django.conf import settings
 urlpatterns = [
     path('', views.index, name='index'),
     path('acerca_de/', views.about, name='acerca_de'),
-
-    path('alumnos/', views.alumnos, name='alumnos'),
+    path('alumnos/', views.alumnos_view, name='alumnos'), 
+    path('logro/<int:logro_id>/', views.logro_view, name='logro_view'),
     path('alumnos2/', views.alumnos2, name='alumnos2'),
     path('contactos/', views.contacto_view, name='contactos'),
     path('contactos2/', views.contacto_confirmacion, name='contacto_confirmacion'),

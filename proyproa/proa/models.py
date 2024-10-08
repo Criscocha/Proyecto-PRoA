@@ -27,3 +27,12 @@ class Noticia(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+
+
+class Logro(models.Model):
+    nombre = models.CharField(max_length=255)  # Asegúrate de que este campo esté definido
+    descripcion = models.TextField()
+
+    def __str__(self):
+        return self.nombre

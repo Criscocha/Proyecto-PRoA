@@ -1,5 +1,7 @@
 from django import forms
 from .models import Contacto
+from .models import Logro
+from .models import Evento
 
 class ContactoForm(forms.ModelForm):
     class Meta:
@@ -22,3 +24,10 @@ class NoticiaForm(forms.ModelForm):
     class Meta:
         model = Noticia
         fields = ['titulo', 'descripcion', 'fecha', 'imagen']
+        fields = ['titulo', 'descripcion', 'fecha', 'imagen', 'vigente']
+
+
+class LogroForm(forms.ModelForm):
+    class Meta:
+        model = Logro 
+        fields = ['nombre', 'descripcion']
