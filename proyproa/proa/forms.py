@@ -24,8 +24,6 @@ class NoticiaForm(forms.ModelForm):
     class Meta:
         model = Noticia
         fields = ['titulo', 'descripcion', 'fecha', 'imagen']
-        fields = ['titulo', 'descripcion', 'fecha', 'imagen', 'vigente']
-
 
 class LogroForm(forms.ModelForm):
     class Meta:
