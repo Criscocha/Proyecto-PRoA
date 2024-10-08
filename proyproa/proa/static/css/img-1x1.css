@@ -1,4 +1,4 @@
-img {
+.a {
     width: 200px;
     height: 200px;
     object-fit: cover; /* Esto asegura que la imagen mantenga su proporción y llene el área */
