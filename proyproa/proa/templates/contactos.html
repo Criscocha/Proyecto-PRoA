@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-
-<div class="containter">
+<!-- Agregamos un contenedor para centrar el contenido -->
+<div class="container">
     <h2>Página de contactos</h2>
     <p>Bienvenidos a la página de contactos de mi sitio web Proa.</p>
 
@@ -26,7 +26,7 @@
     <h2>Redes sociales:</h2>
     <ul>
         <li class="social-icons">
-            <i class="fab fa-whatsapp"></i> WhatsApp de consultas: {{ redes_sociales.WhatsApp }}
+            <i class="fab fa-whatsapp"></i><a href=" https://wa.me/03524473666" target="_blank">WhatsApp de consultas:</a> {{ redes_sociales.WhatsApp }}
         </li>
         <li class="social-icons">
             <i class="fab fa-facebook"></i> <a href="{{ redes_sociales.Facebook }}" target="_blank">Facebook</a>
@@ -36,7 +36,6 @@
         </li>
     </ul>
     
-
     <h2>Formulario de contacto</h2>
     <form method="post">
         {% csrf_token %}

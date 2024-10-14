@@ -6,17 +6,17 @@
 {% block contenido %}
 
 <div class="container">
-    <!-- Contenedor principal que utiliza flexbox para organizar las columnas -->
+    
     <div class="row">
-        <!-- Columna izquierda: Noticias -->
+        
         <div class="col-md-8">
             <h2>Noticias </h2>
             <ul>
                 {% for noticia in noticias %}
                 <li>
                     <h3>{{ noticia.titulo }}</h3>
+                
                     <p>{{ noticia.descripcion }}</p>
-                    <p><strong>Fecha:</strong> {{ noticia.fecha }}</p>
                     {% if noticia.imagen %}
                         <img src="{{ noticia.imagen.url }}" alt="Imagen de {{ noticia.titulo }}" width="300">
                     {% endif %}
