@@ -95,8 +95,15 @@ def crear_noticia(request):
     return render(request, 'crear_noticia.html', {'form': form})
 
 def lista_eventos(request):
-    eventos_vigentes = Evento.objects.filter(vigente=True)
-    return render(request, 'eventos.html', {'eventos': eventos_vigentes})
+    eventos_vigentes = Evento.objects.filter(vigente=True).order_by('fecha')  # Ordena por fecha
+    noticias_vigentes = Noticia.objects.all()
+    contexto = {
+        'eventos': eventos_vigentes,
+        'noticias': noticias_vigentes
+    }
+    return render(request, 'eventos.html', contexto)
+
+
 
 def colegios(request):
     return render(request,'colegios.html')

@@ -1,182 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block titulo %}Eventos:{% endblock %}
+{% block titulo %}Eventos{% endblock %}
 
 {% block contenido %}
 
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FullCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
-    <!-- jQuery UI CSS (opcional si se desea usar más tarde) -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .carousel-container {
-            width: 70%;
-        }
-
-        .calendar-container {
-            width: 25%;
-        }
-
-        #calendar {
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .news-list {
-            margin-top: 30px;
-        }
-
-        .news-item {
-            margin-bottom: 20px;
-        }
-
-        .news-item img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .news-item h5 {
-            margin-top: 10px;
-        }
-
-        .news-item p {
-            color: #555;
-        }
-    </style>
-</head>
-<body>
-
 <div class="container">
-    <!-- Carrusel de noticias -->
-    <div class="carousel-container">
-        <div id="carouselNoticias" class="carousel slide" data-ride="carousel" data-interval="5000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://via.placeholder.com/800x300" class="d-block w-100" alt="Noticia 1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Concierto Inaugural</h5>
-                        <p>El próximo viernes, se llevará a cabo el concierto inaugural del nuevo auditorio de la escuela.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/800x300" class="d-block w-100" alt="Noticia 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Semana de la Ciencia</h5>
-                        <p>Durante la Semana de la Ciencia se realizarán talleres y conferencias para todos los estudiantes.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/800x300" class="d-block w-100" alt="Noticia 3">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Feria de Proyectos</h5>
-                        <p>Estudiantes presentarán sus proyectos innovadores en la feria anual de la escuela.</p>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselNoticias" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselNoticias" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-            </a>
+    <!-- Contenedor principal que utiliza flexbox para organizar las columnas -->
+    <div class="row">
+        <!-- Columna izquierda: Noticias -->
+        <div class="col-md-8">
+            <h2>Noticias </h2>
+            <ul>
+                {% for noticia in noticias %}
+                <li>
+                    <h3>{{ noticia.titulo }}</h3>
+                    <p>{{ noticia.descripcion }}</p>
+                    <p><strong>Fecha:</strong> {{ noticia.fecha }}</p>
+                    {% if noticia.imagen %}
+                        <img src="{{ noticia.imagen.url }}" alt="Imagen de {{ noticia.titulo }}" width="300">
+                    {% endif %}
+                </li>
+                {% empty %}
+                <li>No hay noticias vigentes en este momento.</li>
+                {% endfor %}
+            </ul>
         </div>
 
-        
+        <!-- Columna derecha: Eventos -->
+        <div class="col-md-4">
+            <h3>Eventos </h3>
+            <ul>
+                {% for evento in eventos %}
+                <li>
+                    <h4>{{ evento.nombre }}</h4>
+                    <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
+                    {% if evento.vigente %}
+                        <p>Este evento está vigente.</p>
+                    {% else %}
+                        <p>Este evento ya no está vigente.</p>
+                    {% endif %}
+                </li>
+                {% empty %}
+                <li>No hay eventos vigentes en este momento.</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-
 </div>
-
-
-
-
-
-  <h2>Noticias  Vigentes</h2>
-  <ul>
-    {% for evento in eventos %}
-      <li>
-        <h3>{{ evento.titulo }}</h3>
-        <p>{{ evento.descripcion }}</p>
-        <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
-        {% if evento.imagen %}
-          <img src="/static/img/{{ evento.imagen.url }}" alt="Imagen de {{ evento.titulo }}" width="300">
-        {% endif %}
-      </li>
-    {% empty %}
-      <li>No hay eventos vigentes en este momento.</li>
-    {% endfor %}
-  </ul>
-
-
-
-
-
-
-
-
-
-<!-- jQuery, Bootstrap JS, and FullCalendar JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            events: [
-                {
-                    title: 'Concierto Inaugural',
-                    start: '2024-09-20',
-                    description: 'Concierto en el nuevo auditorio de la escuela.'
-                },
-                {
-                    title: 'Semana de la Ciencia',
-                    start: '2024-09-25',
-                    end: '2024-09-30',
-                    description: 'Talleres y conferencias sobre ciencia.'
-                },
-                {
-                    title: 'Feria de Proyectos',
-                    start: '2024-10-10',
-                    description: 'Presentación de proyectos innovadores de estudiantes.'
-                }
-            ],
-            eventClick: function(info) {
-                alert(info.event.title + ": " + info.event.extendedProps.description);
-            }
-        });
-
-        calendar.render();
-    });
-</script>
-
-</body>
-</html>
-
-
 
 {% endblock %}
