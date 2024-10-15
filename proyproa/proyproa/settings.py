@@ -122,11 +122,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
-# Directorios adicionales donde buscar archivos estáticos
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'proa', 'static'),
-]
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
