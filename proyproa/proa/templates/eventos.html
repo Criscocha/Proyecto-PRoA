@@ -15,7 +15,7 @@
                 {% for noticia in noticias %}
                 <li>
                     <h3>{{ noticia.titulo }}</h3>
-                
+                    <p><strong>Fecha:</strong> {{ noticia.fecha }}</p>
                     <p>{{ noticia.descripcion }}</p>
                     {% if noticia.imagen %}
                         <img src="{{ noticia.imagen.url }}" alt="Imagen de {{ noticia.titulo }}" width="300">

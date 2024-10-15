@@ -1,9 +1,47 @@
-
 {% block content %}
-  <h2>Crear Noticia</h2>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar Noticia</button>
-  </form>
+  <h2 style="text-align: center;">Crear Noticia</h2>
+  
+  <div style="max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      
+      <div style="margin-bottom: 15px;">
+        {{ form.titulo.label_tag }}<br>
+        {{ form.titulo }}
+      </div>
+      
+      <div style="margin-bottom: 15px;">
+        {{ form.descripcion.label_tag }}<br>
+        {{ form.descripcion }}
+      </div>
+      
+      <div style="display: flex; align-items: center; margin-bottom: 15px;">
+        <div style="flex-grow: 1;">
+          {{ form.fecha.label_tag }}<br>
+          {{ form.fecha }}
+        </div>
+        <button type="button" id="hoyBtn" style="margin-left: 10px; padding: 6px 12px; background-color: #007bff; color: white; border: none; border-radius: 4px;">Hoy</button>
+      </div>
+      
+      <div style="margin-bottom: 15px;">
+        {{ form.imagen.label_tag }}<br>
+        {{ form.imagen }}
+      </div>
+
+      <button type="submit" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 4px;">Guardar Noticia</button>
+    </form>
+  </div>
+
+  <script>
+    // Botón "Hoy" para establecer la fecha actual
+    document.getElementById('hoyBtn').addEventListener('click', function() {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('id_fecha').value = today;
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const dateInput = document.querySelector('.datepicker');
+      dateInput.type = 'date';  // Cambiar el tipo del input a 'date' para mostrar el mini calendario nativo
+    });
+  </script>
 {% endblock %}
