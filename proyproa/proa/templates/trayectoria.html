@@ -7,7 +7,7 @@
     <div class="container">
         <h1 class="text-center" >Nuestra Trayectoria</h1>
         <div class="row ">
-            <div class="col-7">
+            <div class="col-6">
                 <p style="text-align: justify;"> El 6 de marzo del 2019, se fundó la Escuela Experimental ProA en Villa del Totoral provincia de Córdoba la misma se basa en lo establecido en la Resolución Ministerial 136/14 y en la resolución 28/22. <br> <br>
                     La institución por el período de un año estuvo funcionando en una casa de la localidad (hoy es nombrado por los estudiantes y sus docentes “La Casita”); padres y miembros de la escuela trabajaron para que los estudiantes puedan iniciar el ciclo lectivo en las condiciones adecuadas. <br> <br>
                     En el mes de marzo del año 2020, por medio de diferentes gestiones, el colegio se trasladó a la Escuela Especial Arnaldo Solsona. Ese mismo año, al decretarse la pandemia por COVID 19, se implementaron clases virtuales organizadas por los docentes que integraban cada núcleo, garantizando el derecho a la educación de nuestros estudiantes. Las clases sincrónicas (mediante la herramienta de google meet) por materia tenían una duración total de una hora y media reloj, las actividades asincrónicas se asignaban a cada estudiante por Classroom, con actividades individuales por cada uno de los espacios y los mismos tenían una semana  para subir sus producciones. <br> <br>
@@ -16,14 +16,15 @@
                     El edificio propio fue entregado el día 26 de abril del año 2024.
                 </p>
             </div>
-            <div class="col-5"> <br>
-                <div class="row"><img src="/static/img/casita.jpg" style="height: 200px; width: 400px;"></div> <br>
-                <div class="row"><img src="/static/img/solsona.png" style="height: 250px; width: 400px;"></div> <br>
-                <div class="row"><img src="/static/img/proa.jpg" style="height: 200px; width: 400px;"></div>
+            <div class="col-6" style="image-rendering: optimizeQuality;"> 
+                <div style="padding: 5%;"></div>
+                <img src="{% static 'img/casita.jpg' %}"  class="img-fluid rounded" ">
+                <div style="padding: 15%;"></div>
+                <img src="{% static 'img/solsona.png' %}" class="img-fluid rounded"> 
+                <div style="padding: 15%;"></div>
+                <img src="{% static 'img/proa.jpg' %}" class="img-fluid rounded">
             </div>
             
         </div>
     </div>
-       
-
-    {% endblock %}
+{% endblock %}

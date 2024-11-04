@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from .forms import ContactoForm
 from .models import Evento, Noticia
 from .forms import EventoForm, NoticiaForm
-
+from django.contrib import messages
 from .models import Evento
 from .forms import EventoForm
 from .models import Logro
@@ -88,15 +88,23 @@ def crear_noticia(request):
         form = NoticiaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('lista_eventos')  
+            messages.success(request, 'Noticia guardada exitosamente.')
+            return redirect('lista_eventos')
     else:
         form = NoticiaForm()
-    
+
     return render(request, 'crear_noticia.html', {'form': form})
 
 def lista_eventos(request):
-    eventos_vigentes = Evento.objects.filter(vigente=True)
-    return render(request, 'eventos.html', {'eventos': eventos_vigentes})
+    eventos_vigentes = Evento.objects.filter(vigente=True).order_by('fecha')  # Ordena por fecha
+    noticias_vigentes = Noticia.objects.all()
+    contexto = {
+        'eventos': eventos_vigentes,
+        'noticias': noticias_vigentes
+    }
+    return render(request, 'eventos.html', contexto)
+
+
 
 def colegios(request):
     return render(request,'colegios.html')
