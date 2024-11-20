@@ -4,49 +4,53 @@
 {% block titulo %}Eventos{% endblock %}
 
 {% block contenido %}
-
-<div class="container">
-    
+<div class="container mt-5">
     <div class="row">
-        
-        <div class="col-md-8">
-            <h2>Noticias </h2>
-            <ul>
+        <!-- Columna izquierda: Noticias -->
+        <div class="col-md-8 pe-4"> <!-- Aumentamos aún más el tamaño de la columna -->
+            <h2 class="mb-4 text-primary">Noticias</h2>
+            <ul class="list-unstyled">
                 {% for noticia in noticias %}
-                <li>
-                    <h3>{{ noticia.titulo }}</h3>
-                    <p><strong>Fecha:</strong> {{ noticia.fecha }}</p>
-                    <p>{{ noticia.descripcion }}</p>
+                <li class="mb-2 pb-2 border-bottom">
+                    <h3 class="text-dark fw-bold mb-3">{{ noticia.titulo }}</h3>
+                    <p class="text-muted small mb-2"><strong>Fecha:</strong> {{ noticia.fecha }}</p>
+                    <div class="lh-lg" style="font-size: 0.95rem; line-height: 1.4; text-align: justify;">
+                        <!-- Se usa el filtro linebreaks para convertir saltos de línea en <p> y <br> -->
+                        {{ noticia.descripcion|linebreaks }}
+                    </div>
                     {% if noticia.imagen %}
-                        <img src="{{ noticia.imagen.url }}" alt="Imagen de {{ noticia.titulo }}" width="300">
+                    <div class="mt-1 text-center">
+                        <img src="{{ noticia.imagen.url }}" alt="Imagen de {{ noticia.titulo }}" class="img-fluid rounded shadow-sm" style="max-width: 80%; height: auto;">
+                    </div>
                     {% endif %}
                 </li>
                 {% empty %}
-                <li>No hay noticias vigentes en este momento.</li>
-                {% endfor %}                                                
+                <li class="text-muted fst-italic">No hay noticias vigentes en este momento.</li>
+                {% endfor %}
             </ul>
         </div>
 
         <!-- Columna derecha: Eventos -->
-        <div class="col-md-4">
-            <h3>Eventos </h3>
-            <ul>
+        <div class="col-md-4 ps-4"> <!-- Aumentamos aún más el tamaño de la columna -->
+            <h3 class="mb-4 text-primary">Eventos</h3>
+            <ul class="list-group">
                 {% for evento in eventos %}
-                <li>
-                    <h4>{{ evento.nombre }}</h4>
-                    <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
-                    {% if evento.vigente %}
-                        <p>Este evento está vigente.</p>
-                    {% else %}
-                        <p>Este evento ya no está vigente.</p>
-                    {% endif %}
+                <li class="list-group-item mb-3 shadow-sm">
+                    <h4 class="text-dark fw-bold">{{ evento.nombre }}</h4>
+                    <p class="text-muted small"><strong>Fecha:</strong> {{ evento.fecha }}</p>
+                    <p class="lh-lg" style="font-size: 0.85rem;">
+                        {% if evento.vigente %}
+                        <span class="badge bg-success">Vigente</span>
+                        {% else %}
+                        <span class="badge bg-danger">No vigente</span>
+                        {% endif %}
+                    </p>
                 </li>
                 {% empty %}
-                <li>No hay eventos vigentes en este momento.</li>
+                <li class="list-group-item text-muted fst-italic">No hay eventos vigentes en este momento.</li>
                 {% endfor %}
             </ul>
         </div>
     </div>
 </div>
-
 {% endblock %}
