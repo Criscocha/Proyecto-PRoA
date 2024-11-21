@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-43b6xc0$x!nl&8tagxtptmmut)9&xax((j^1+d8b(#w9v49wjc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['proavdt.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -122,11 +122,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
-# Directorios adicionales donde buscar archivos estáticos
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'proa', 'static'),
-]
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
